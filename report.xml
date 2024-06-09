@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="6" time="0.050" timestamp="2024-04-24T20:44:13.010699" hostname="home3-HP-ProBook-440-G5">
+        <testcase classname="python_samlpes.pytest_test" name="test_1" time="0.001" />
+        <testcase classname="python_samlpes.pytest_test" name="test_3" time="0.001" />
+        <testcase classname="python_samlpes.pytest_test" name="test_7" time="0.001" />
+        <testcase classname="python_samlpes.pytest_test" name="test_8" time="0.001" />
+        <testcase classname="python_samlpes.pytest_test" name="test_9" time="0.001" />
+        <testcase classname="python_samlpes.pytest_test" name="test_10" time="0.002" />
+    </testsuite>
+</testsuites>
