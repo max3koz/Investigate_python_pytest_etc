@@ -1,7 +1,7 @@
 from collections.abc import Iterable
 
 
-class StringUpdateFunction:
+class ListUpdateFunction:
 
     def compress(items: list[int]) -> Iterable[int]:
         # your code here
