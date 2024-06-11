@@ -1,8 +1,8 @@
+import logging
 from collections.abc import Iterable
 
 
 class ListUpdateFunction:
-
     def compress(items: list[int]) -> Iterable[int]:
         # your code here
         new_list = []
