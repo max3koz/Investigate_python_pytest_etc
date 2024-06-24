@@ -1,5 +1,4 @@
-import netconf.util as ncutil
-from netconf import nsmap_update, server
+from netconf import nsmap_update, server, util
 from users_cred import username, password
 from netconf.client import NetconfSSHSession, connect_ssh
 import time
@@ -16,11 +15,11 @@ class MyServer (object):
         self.server = server.NetconfSSHServer(server_ctl=controller, server_methods=self)
 
     def nc_append_capabilities(self, caps):
-        ncutil.subelm(caps, "capability").text = MODEL_NS
+        util.subelm(caps, "capability").text = MODEL_NS
 
     def rpc_my_cool_rpc(self, session, rpc, *params):
-        data = ncutil.elm("data")
-        data.append(ncutil.leaf_elm("pfx:result", "RPC result string"))
+        data = util.elm("data")
+        data.append(util.leaf_elm("pfx:result", "RPC result string"))
         return data
 
 server = MyServer(username, password)
