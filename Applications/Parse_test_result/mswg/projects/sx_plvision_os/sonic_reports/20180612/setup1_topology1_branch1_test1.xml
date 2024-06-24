@@ -1,0 +1,16 @@
+<setup_name name="setup_1">
+	<topology name="topology_1">
+        <branch name="branch_1">
+            <test>
+                <tag>test_1</tag>
+                <URL>https://192.168.10.1/10/1</URL>
+                <status>OK</status>
+            </test>
+            <test>
+                <tag>test_2</tag>
+                <URL>https://192.168.10.1/10/2</URL>
+                <status>OK</status>
+            </test>
+         </branch>
+    </topology>
+</setup_name>
