@@ -274,5 +274,82 @@ class StringUpdateFunction:
             res = max(res, index - start + 1)
         return res
 
+    @staticmethod
+    def checkio(number: int) -> int:
+        """
+        You are given a positive number.
+        Your function should calculate the product of the digits excluding any zeroes.
+        """
+        res = 1
+        for item in str(number):
+            if int(item) != 0:
+                res = res * int(item)
+        return res
 
-print(StringUpdateFunction.longest_substr("pwwkew"), 3)
+    @staticmethod
+    def from_camel_case(name: str) -> str:
+        """
+        Convert the name of a function from CamelCase ("MyFunctionName") into the Python format ("my_function_name")
+        where all chars are in lowercase and all words are concatenated with an intervening underscore symbol "_".
+        """
+        new_name = []
+        for index, item in enumerate(name):
+            if item.isupper() is True and index != 0:
+                new_name.append("_" + item.lower())
+            elif item.isupper() is True and index == 0:
+                new_name.append(item.lower())
+            else:
+                new_name.append(item)
+        res = "".join(new_name)
+        return res
+
+    @staticmethod
+    def to_camel_case(name: str) -> str:
+        """
+        Convert the name of a function from the Python format (for example "my_function_name")
+        into CamelCase ("MyFunctionName") where the first char of every word is in uppercase
+        and all words are concatenated without any intervening characters.
+        """
+        res = ""
+        new_name = name.split("_")
+        for index, item in enumerate(new_name):
+            res += item.capitalize()
+        return res
+
+    @staticmethod
+    def calculate_chars(text: str) -> str:
+        """
+        You are given a text, which contains different English letters and punctuation symbols.
+        You should find the most frequent letter in the text. The letter returned must be in lower case.
+        """
+        data = {}
+        for char in text.lower():
+            if char in data:
+                data[char] += 1
+            else:
+                data[char] = 1
+        count_value = 0
+        chat_list = dict(sorted(data.items(), reverse=True))
+        print(chat_list)
+        for char in chat_list:
+            if data[char] >= count_value and char.isalpha() is True:
+                count_value = data[char]
+                res = char
+        return res
+
+    @staticmethod
+    def find_middle(text: str) -> str:
+        """
+        You are given some string where you need to find its middle character(s).
+        The string may contain one word, a few symbols or a whole sentence.
+        If the length of the string is even, then you should return two middle characters,
+        but if the length is odd, return just one.
+        """
+        string_middle = len(text) // 2
+        if len(text) % 2 != 0:
+            return text[string_middle]
+        else:
+            return text[string_middle - 1] + text[string_middle]
+
+
+print(StringUpdateFunction.find_middle("test"))

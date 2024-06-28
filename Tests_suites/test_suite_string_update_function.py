@@ -447,3 +447,123 @@ class TestStringUpdateFunction:
         logger.info(f"Test case with result text '{expected_result}'.")
         logger.info(f"Verify expected result to actual result.")
         assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.checkio(123405), 120, id="testcase_1_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(999), 729, id="testcase_2_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(1000), 1, id="testcase_3_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(1111), 1, id="testcase_4_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(999999), 531441, id="testcase_5_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(1), 1, id="testcase_6_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(9), 9, id="testcase_7_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(736635), 11340, id="testcase_8_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(375251), 1050, id="testcase_9_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(778241), 3136, id="testcase_10_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(930154), 540, id="testcase_11_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(306026), 216, id="testcase_12_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(194325), 1080, id="testcase_13_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(376087), 7056, id="testcase_14_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(550643), 1800, id="testcase_15_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(90160), 54, id="testcase_16_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(232177), 588, id="testcase_17_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(951216), 540, id="testcase_18_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(273438), 4032, id="testcase_19_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(256991), 4860, id="testcase_20_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(542929), 6480, id="testcase_21_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(399996), 118098, id="testcase_22_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(929806), 7776, id="testcase_23_find_longest_substr"),
+            pytest.param(StringUpdateFunction.checkio(638332), 2592, id="testcase_24_find_longest_substr"),
+    ))
+    def test_suite_find_end_zeros(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.from_camel_case("MyFunctionName"), "my_function_name",
+                         id="testcase_1_check_from_camel_case"),
+            pytest.param(StringUpdateFunction.from_camel_case("IPhone"), "i_phone",
+                         id="testcase_2_check_from_camel_case"),
+            pytest.param(StringUpdateFunction.from_camel_case("ThisFunctionIsEmpty"), "this_function_is_empty",
+                         id="testcase_3_check_from_camel_case"),
+            pytest.param(StringUpdateFunction.from_camel_case("Name"), "name",
+                         id="testcase_4_check_from_camel_case"),
+            pytest.param(StringUpdateFunction.from_camel_case("ThisIsReallyVeryLongString"),
+                         "this_is_really_very_long_string",
+                         id="testcase_5_check_from_camel_case"),
+            pytest.param(StringUpdateFunction.from_camel_case("test0time"), "test0time",
+                         id="testcase_6_check_from_camel_case"),
+
+    ))
+    def test_suite_check_from_camel_case(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.to_camel_case("my_function_name"), "MyFunctionName",
+                         id="testcase_1_check_to_camel_case"),
+            pytest.param(StringUpdateFunction.to_camel_case("i_phone"), "IPhone",
+                         id="testcase_2_check_to_camel_case"),
+            pytest.param(StringUpdateFunction.to_camel_case("this_function_is_empty"), "ThisFunctionIsEmpty",
+                         id="testcase_3_check_to_camel_case"),
+            pytest.param(StringUpdateFunction.to_camel_case("name"), "Name",
+                         id="testcase_4_check_to_camel_case"),
+            pytest.param(StringUpdateFunction.to_camel_case("this_is_really_very_long_string"),
+                         "ThisIsReallyVeryLongString",
+                         id="testcase_5_check_to_camel_case"),
+            pytest.param(StringUpdateFunction.to_camel_case("test0time"), "test0time",
+                         id="testcase_6_check_to_camel_case"),
+
+    ))
+    def test_suite_check_to_camel_case(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.calculate_chars("Lorem ipsum dolor sit amet"), "m",
+                         id="testcase_1_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("Lorem ipsum dolor sit amet 0000000000000000000"),
+                         "m",
+                         id="testcase_2_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("Aaaaaaaaaaaaaaaa!!!!"), "a",
+                         id="testcase_3_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("Gregor then turned to look out the window at the"
+                                                              " dull weather.Nooooooooooo!!! Why!?!"), "o",
+                         id="testcase_4_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("fn;lsfndasl;f naslkdnlkasdnfslahwemwjkrjkl;zcmk;"
+                                                              "lzcdkcslksdkseewme,"), "k",
+                         id="testcase_5_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("fsbd"), "b",
+                         id="testcase_6_check_calculate_chars"),
+            pytest.param(StringUpdateFunction.calculate_chars("abb"), "b",
+                         id="testcase_7_check_calculate_chars"),
+
+    ))
+    def test_suite_check_calculate_chars(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.find_middle("example"), "m",
+                         id="testcase_1_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("test"), "es",
+                         id="testcase_2_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("    few whitespaces   "), "it",
+                         id="testcase_3_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("very-very long sentence"), "o",
+                         id="testcase_4_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("symbols are: !@#$%^&*()="), ": ",
+                         id="testcase_5_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("*"), "*",
+                         id="testcase_6_find_middle_string"),
+            pytest.param(StringUpdateFunction.find_middle("Hi"), "Hi",
+                         id="testcase_7_find_middle_string"),
+
+    ))
+    def test_suite_find_middle_string(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
