@@ -190,7 +190,7 @@ class StringUpdateFunction:
             remaining_chars = s[:index] + s[index+1:]
             for perm in StringUpdateFunction.string_permutations(remaining_chars):
                 all_permutations.append(char + perm)
-        res = all_permutations
+        res = sorted(all_permutations)
         return res
 
     @staticmethod
@@ -351,5 +351,25 @@ class StringUpdateFunction:
         else:
             return text[string_middle - 1] + text[string_middle]
 
+    @staticmethod
+    def cut_sentence(line: str, length: int) -> str:
+        """
+        Your task in this mission is to truncate a sentence to a length
+        that does not exceed a given number of characters.
+        """
+        line_data = line.split(" ")
+        res, res_length = "", 0
+        index = 0
+        if len(line) > length:
+            while len(res) < length and len(res) + len(line_data[index]) <= length:
+                res += "".join(line_data[index]) + " "
+                res_length += len(line_data[index]) + 1
+                index += 1
+            res = res[:-1] + "..."
+            return res
+        elif length <= 3:
+            return "..."
+        else:
+            return line
 
-print(StringUpdateFunction.find_middle("test"))
+print(StringUpdateFunction.cut_sentence("Hi my name is Alex", 2))
