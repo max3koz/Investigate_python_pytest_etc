@@ -271,7 +271,7 @@ class TestStringUpdateFunction:
                           "dcab", "dcba"
                           ],
                          id="testcase_4_find_string_permutations"),
-            pytest.param(StringUpdateFunction.string_permutations("aab"), ['aab', 'aba', 'aab', 'aba', 'baa', 'baa'],
+            pytest.param(StringUpdateFunction.string_permutations("aab"), ['aab', 'aab', 'aba', 'aba', 'baa', 'baa'],
                          id="testcase_5_find_string_permutations"),
     ))
     def test_suite_find_string_permutations(self, actual_result, expected_result):
@@ -512,7 +512,7 @@ class TestStringUpdateFunction:
             pytest.param(StringUpdateFunction.to_camel_case("this_is_really_very_long_string"),
                          "ThisIsReallyVeryLongString",
                          id="testcase_5_check_to_camel_case"),
-            pytest.param(StringUpdateFunction.to_camel_case("test0time"), "test0time",
+            pytest.param(StringUpdateFunction.to_camel_case("test0time"), "Test0time",
                          id="testcase_6_check_to_camel_case"),
 
     ))
@@ -564,6 +564,40 @@ class TestStringUpdateFunction:
 
     ))
     def test_suite_find_middle_string(self, actual_result, expected_result):
+        logger.info(f"Test case with result text '{expected_result}'.")
+        logger.info(f"Verify expected result to actual result.")
+        assert actual_result == expected_result
+
+    @pytest.mark.parametrize("actual_result, expected_result", (
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 8), "Hi my...",
+                         id="testcase_1_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 4), "Hi...",
+                         id="testcase_2_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 20),
+                         "Hi my name is Alex",
+                         id="testcase_3_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 18),
+                         "Hi my name is Alex",
+                         id="testcase_4_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 9), "Hi my...",
+                         id="testcase_5_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 11), "Hi my name...",
+                         id="testcase_6_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('OMG you did it', 4), "OMG...",
+                         id="testcase_7_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 10), "Hi my name...",
+                         id="testcase_8_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Alex', 1), "...",
+                         id="testcase_9_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hello my name is Alex', 2), "...",
+                         id="testcase_10_find_cut_sentence"),
+            pytest.param(StringUpdateFunction.cut_sentence('Hi my name is Bartholomew', 22),
+                         "Hi my name is...",
+                         id="testcase_11_find_cut_sentence"),
+
+    ))
+    def test_suite_find_cut_sentence(self, actual_result, expected_result):
+        logger.info(f"Test case: '{id}'.")
         logger.info(f"Test case with result text '{expected_result}'.")
         logger.info(f"Verify expected result to actual result.")
         assert actual_result == expected_result
