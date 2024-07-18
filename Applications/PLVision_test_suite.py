@@ -119,5 +119,83 @@ def pyramid(levels):
     for i in range(1, levels*2, 2):
         print(" " * (levels*2//2-i//2-1) + "#" * i)
 
-
 pyramid(pyramid_height)
+
+
+# def is_year_leap(year):
+#     #
+#     # Ваш код з попередньої лабораторної роботи.
+#     #
+#     if year % 4 == 0 and (year % 400 == 0 or year % 100 != 0):
+#         return True
+#     else:
+#         return False
+#
+# def days_in_month(year, month):
+#     #
+#     # Ваш код з попередньої лабораторної роботи.
+#     #
+#     if month == 2 and is_year_leap(year) == True:
+#         return 29
+#     elif month == 2 and is_year_leap(year) == False:
+#         return 28
+#     elif month == 4 or month == 6 or month == 9 or month == 11:
+#         return 30
+#     else:
+#         return 31
+#
+# def day_of_year(year, month, day):
+#     #
+#     # Напишіть тут свій новий код.
+#     #
+#     total = 0
+#     for month_num in range(1, month):
+#         print(month_num)
+#
+#         if day > 31 and (month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10
+#                          or month == 12):
+#             return None
+#             break
+#         elif day > 30 and (month == 4 or month == 6 or month == 9 or month == 11):
+#             return None
+#             break
+#         elif is_year_leap(year) is True and day > 29 and month == 2:
+#             return None
+#             break
+#         elif is_year_leap(year) is False and day > 28 and month == 2:
+#             return None
+#             break
+#
+#         if month == 2:
+#             if is_year_leap(year) == True and day < 30:
+#                 total += days_in_month(year, month_num)
+#             elif is_year_leap(year) == True and day < 29:
+#                 total += days_in_month(year, month_num)
+#             else:
+#                 return None
+#                 break
+#         else:
+#             total += days_in_month(year, month_num)
+#         print(days_in_month(year, month_num), total)
+#     return total + day
+#
+#
+# print(day_of_year(2000, 11, 31))
+
+
+def is_prime(num):
+    #
+    # Напишіть тут свій код.
+    #
+    count = 0
+    for number in range(2, num):
+        if num % number == 0:
+            count += 1
+    if count == 0:
+        return True
+
+
+for i in range(1, 20):
+    if is_prime(i + 1):
+        print(i + 1, end=" ")
+print()
