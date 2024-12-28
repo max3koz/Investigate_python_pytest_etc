@@ -1,4 +1,4 @@
 /Tests_suites/report.html
-.idea/
-__pcache__
-__pycache__/
+/.idea/
+/__pcache__
+/__pycache__/
