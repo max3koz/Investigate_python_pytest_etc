@@ -37,11 +37,19 @@ class AlienInvasion:
                     self.ship.moving_right = True
                 if event.key == pygame.K_LEFT:
                     self.ship.moving_left = True
+                if event.key == pygame.K_UP:
+                    self.ship.moving_top = True
+                if event.key == pygame.K_DOWN:
+                    self.ship.moving_bottom = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     self.ship.moving_right = False
                 if event.key == pygame.K_LEFT:
                     self.ship.moving_left = False
+                if event.key == pygame.K_UP:
+                    self.ship.moving_top = False
+                if event.key == pygame.K_DOWN:
+                    self.ship.moving_bottom = False
 
     def _update_screen(self):
         self.game_screen.fill(self.game_setting.background_color)  # Reprint screen at each iteration of cycle.

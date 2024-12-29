@@ -21,10 +21,13 @@ class Ship:
 
         """Save the decimal value for the ship position horizontally"""
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
 
         """Moving inicator"""
         self.moving_right = False
         self.moving_left = False
+        self.moving_top = False
+        self.moving_bottom = False
 
     def update_position(self):
         """Update current ship position based on the moving indicator."""
@@ -32,6 +35,10 @@ class Ship:
             self.rect.x += self.ship_speed_settings.ship_speed
         if self.moving_left:
             self.rect.x -= self.ship_speed_settings.ship_speed
+        if self.moving_bottom:
+            self.rect.y += self.ship_speed_settings.ship_speed
+        if self.moving_top:
+            self.rect.y -= self.ship_speed_settings.ship_speed
 
     def start_position(self):
         """Paint ship in the current location"""
