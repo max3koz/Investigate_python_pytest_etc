@@ -14,8 +14,9 @@ class AlienInvasion:
         """
         pygame.init()
         self.game_setting = GameSettings()
-        self.game_screen = pygame.display.set_mode((self.game_setting.screen_width,
-                                                    self.game_setting.screen_height))
+        self.game_screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self.game_setting.screen_width = self.game_screen.get_rect().width
+        self.game_setting.screen_height = self.game_screen.get_rect().height
         self.ship = Ship(self)
 
     def run_game(self):
