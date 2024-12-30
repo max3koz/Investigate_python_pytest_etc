@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+from bullet import Bullet
 from game_settings import GameSettings
 from ship import Ship
 
@@ -18,6 +19,7 @@ class AlienInvasion:
         self.game_setting.screen_width = self.game_screen.get_rect().width
         self.game_setting.screen_height = self.game_screen.get_rect().height
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
     def run_game(self):
         """
@@ -26,6 +28,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update_position()
+            self.bullets.update()
             self._update_screen()
 
     def _check_events(self):
@@ -49,6 +52,8 @@ class AlienInvasion:
             self.ship.moving_bottom = True
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_event(self, event):
         if event.key == pygame.K_RIGHT:
@@ -60,11 +65,18 @@ class AlienInvasion:
         elif event.key == pygame.K_DOWN:
             self.ship.moving_bottom = False
 
+    def _fire_bullet(self):
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
+
     def _update_screen(self):
         self.game_screen.fill(self.game_setting.background_color)  # Reprint screen at each iteration of cycle.
         self.ship.start_position()
-
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
         pygame.display.flip()  # Show the last paint screen.
+
+
 
 """Create an instance of the game and run it."""
 instance_game = AlienInvasion()
